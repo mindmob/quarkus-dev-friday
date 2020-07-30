@@ -19,7 +19,7 @@ cd quarkus-dev-friday
 Add jsonb reasteasy and mutiny dependency:
 
 ``` bash
-./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-resteasy-jsonb,io.quarkus:quarkus-resteasy-mutiny"
+./mvnw quarkus:add-extension -Dextensions="io.quarkus:quarkus-resteasy-jsonb,io.quarkus:quarkus-resteasy-mutiny,io.quarkus:quarkus-smallrye-graphql"
 ```
 
 For testing purposes add these dependencies manually to your `pom.xml`:
@@ -66,6 +66,25 @@ You can run your application in dev mode that enables live coding using:
 
 ``` bash
 ./mvnw quarkus:dev
+```
+
+## Resources
+
+Get REST resource via: `curl http://localhost:8080/train/`
+
+Get Graphql schema via: `curl http://localhost:8080/graphql/schema.graphql`
+
+Open GraphiQL UI via: `http://localhost:8080/graphql-ui/`
+
+Send a query like:
+
+``` graphql
+{
+  allTrains {
+    name
+    id
+  }
+}
 ```
 
 ## Running the unit tests

@@ -8,6 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import io.smallrye.mutiny.Multi;
+import io.vertx.core.cli.annotations.Description;
 
 @Path("/train")
 public class TrainResource {
@@ -16,6 +17,7 @@ public class TrainResource {
   TrainRepositoryImpl trainRepos;
 
   @GET
+  @Description("Get all Trains we know.")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   public Multi<Train> getAllTrains() {
