@@ -9,9 +9,11 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
+@QuarkusTestResource(PostgresResource.class)
 public class TestTrainResource {
 
   @Test
@@ -25,17 +27,17 @@ public class TestTrainResource {
   public void testAllrainsExpcted() {
 
     // Given
-    Set<Train> expextedTrains = new HashSet<>();
-    expextedTrains.add(new Train(1L, "ICE"));
-    expextedTrains.add(new Train(2L, "ICX"));
-    expextedTrains.add(new Train(3L, "RE"));
+    Set<Train> expectedTrains = new HashSet<>();
+    expectedTrains.add(new Train(1L, "ICE"));
+    expectedTrains.add(new Train(2L, "ICX"));
+    expectedTrains.add(new Train(3L, "RE"));
     // When
     Set<Train> trains = new HashSet<>();
     trains.addAll(Arrays.asList(given().when().get("/train").jsonPath().getObject("$", Train[].class)));
 
     // Then
 
-    assertTrue(trains.containsAll(expextedTrains));
+    assertTrue(trains.containsAll(expectedTrains));
 
   }
 

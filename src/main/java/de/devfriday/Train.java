@@ -1,8 +1,9 @@
 package de.devfriday;
 
+import javax.json.bind.annotation.JsonbTransient;
+
 import io.vertx.mutiny.sqlclient.Row;
 import lombok.Data;
-import com.fasterxml.jackson.annotation.*;
 
 @Data
 public class Train {
@@ -19,7 +20,7 @@ public class Train {
     return new Train(row.getLong("id"), row.getString("name"));
   }
 
-  @JsonIgnore
+  @JsonbTransient
   public boolean isFernverkehr() {
     switch (name) {
       case "ICE":
