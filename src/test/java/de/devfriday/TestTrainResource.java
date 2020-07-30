@@ -2,6 +2,11 @@ package de.devfriday;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,14 +21,24 @@ public class TestTrainResource {
     given().when().get("/train").then().statusCode(200).body(is(s));
   }
 
-  // @Test
-  // public void testAllrainsExpcted() {
+  @Test
+  public void testAllrainsExpcted() {
 
-  // Set<Train> trains = new HashSet<>();
-  // trains.add(new Train(1L, "ICE"));
-  // trains.add(new Train(2L, "ICE"));
-  // given().when().get("/train").then().statusCode(200);
+    //Given
+    Set<Train> expextedTrains = new HashSet<>();
+    expextedTrains.add(new Train(1L, "ICE"));
+    expextedTrains.add(new Train(2L, "ICX"));
+    
+    //When
+    Set<Train> trains= new HashSet<>();
+    trains.addAll(Arrays.asList(given().when().get("/train").jsonPath().getObject("$", Train[].class)));
 
-  // }
+
+
+    //Then
+
+    assertTrue(trains.containsAll(expextedTrains));
+
+  }
 
 }

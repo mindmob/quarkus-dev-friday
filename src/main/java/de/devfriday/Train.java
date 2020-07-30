@@ -3,7 +3,9 @@ package de.devfriday;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import io.vertx.mutiny.sqlclient.Row;
+import lombok.Data;
 
+@Data
 public class Train {
 
   private Long id;
@@ -14,14 +16,8 @@ public class Train {
     this.name = name;
   }
 
-  public Long getId() {
-    return id;
-  }
 
-  public String getName() {
-    return name;
-  }
-
+  @JsonIgnore
   public boolean isFernverkehr() {
     switch (name) {
       case "ICE":
@@ -33,11 +29,8 @@ public class Train {
     }
   }
 
-  public String toString() {
-    return "_id:" + id + "; Name:" + name;
-  }
-
   public static Train from(Row row) {
     return new Train(row.getLong("id"), row.getString("name"));
   }
+
 }
