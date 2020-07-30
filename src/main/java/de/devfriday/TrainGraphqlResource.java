@@ -13,11 +13,17 @@ import io.vertx.core.cli.annotations.Description;
 public class TrainGraphqlResource {
 
   @Inject
-  TrainRepositoryImpl trainRepo;
+  TrainRepository repo;
 
   @Query("allTrains")
   @Description("Get all Trains we know.")
   public List<Train> getAllTrains() {
-    return trainRepo.getAllTrains().collectItems().asList().await().indefinitely();
+    return repo.findAll().collectItems().asList().await().indefinitely();
+  }
+
+  @Query("getTrain")
+  @Description("Get a specific train.")
+  public Train getTrain(int trainId) {
+    return repo.findById(Long.valueOf(trainId)).await().indefinitely();
   }
 }

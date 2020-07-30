@@ -84,6 +84,9 @@ Send a query like:
     name
     id
   }
+  getTrain(trainId: 2) {
+    name
+  }
 }
 ```
 
