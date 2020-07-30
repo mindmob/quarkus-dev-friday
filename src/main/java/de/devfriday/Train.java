@@ -1,7 +1,4 @@
 package de.devfriday;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import io.vertx.mutiny.sqlclient.Row;
 import lombok.Data;
 
@@ -14,19 +11,6 @@ public class Train {
   public Train(Long id, String name) {
     this.id = id;
     this.name = name;
-  }
-
-
-  @JsonIgnore
-  public boolean isFernverkehr() {
-    switch (name) {
-      case "ICE":
-        return true;
-      case "ICX":
-        return true;
-      default:
-        return false;
-    }
   }
 
   public static Train from(Row row) {
