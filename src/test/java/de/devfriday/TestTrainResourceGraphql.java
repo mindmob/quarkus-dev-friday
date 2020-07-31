@@ -1,10 +1,11 @@
 package de.devfriday;
 
 import static org.hamcrest.Matchers.is;
+
+import org.junit.jupiter.api.Test;
+
 import static org.hamcrest.Matchers.hasItem;
 import static io.restassured.RestAssured.given;
-
-import org.junit.Test;
 
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
