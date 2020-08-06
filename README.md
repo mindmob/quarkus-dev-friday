@@ -1,3 +1,5 @@
+![Maven Build](https://github.com/mindmob/quarkus-dev-friday/workflows/Maven%20Build/badge.svg)
+
 # quarkus-dev-friday project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
