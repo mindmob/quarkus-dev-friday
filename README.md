@@ -2,9 +2,14 @@
 
 # quarkus-dev-friday project
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+This is a simple example project for a dev-friday session at DB Vertrieb.
+It uses Quarkus ( https://quarkus.io/ ), and demonstrates the following:
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+- Creating a simple reactive quarkus REST service
+- Unit testing the service using resteasy
+- Adding a postgres datasource using a reactive postgres client
+- Integration testing the service using test containers
+- Adding a GraphQL API to the service
 
 ## Setting up the application
 
