@@ -14,7 +14,7 @@ import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
 @QuarkusTestResource(PostgresResource.class)
-public class TestTrainResource {
+public class TrainResourceIT {
 
   @Test
   public void testAllTrains() {

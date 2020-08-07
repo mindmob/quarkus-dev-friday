@@ -13,10 +13,10 @@ import io.restassured.http.ContentType;
 
 @QuarkusTest
 @QuarkusTestResource(PostgresResource.class)
-public class TestTrainResourceGraphql {
+public class TrainResourceGraphqlIT {
 
   @Test
-  public void testAllTrainsGraphql() {
+  public void allTrainsGraphqlIT() {
     String requestBody = "{\"query\":" + "\"" + "{" + " allTrains  {" + " id" + " name" + "}" + "}" + "\"" + "}";
 
     given().body(requestBody).post("/graphql/").then().contentType(ContentType.JSON)
